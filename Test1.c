@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include <math.h>
+#include<string.h>
 unsigned int getvalue(char entree)      //fonction pour convertir le carctre en un nombre :)
 {
   switch(entree)
@@ -111,11 +112,35 @@ unsigned int getvalue(char entree)      //fonction pour convertir le carctre en 
   }
 }
 
+int longueurChaine(const char* chaine)
+{
+    int nombreDeCaracteres = 0;
+    char i;
+    char caractereActuel = 0;
+
+    do
+    {
+        caractereActuel = chaine[nombreDeCaracteres];
+        nombreDeCaracteres++;
+
+    }
+    while(caractereActuel != '\0'); // On boucle tant qu'on n'est pas arrivé à l'\0
+
+    //if (caractereActuel=' ' )nombreDeCaracteres++;
+
+
+
+
+    nombreDeCaracteres--; // On retire 1 caractère de long pour ne pas compter le caractère \0
+
+    return nombreDeCaracteres;
+}
+
 int main() {
 
 
 
-    int a,b,i,j,res;
+    int a,b,i,j,res,longueur = 0;
     char y;
     printf("Combien de chiffre dans le numero a convertir ");
     scanf("%d",&a);
@@ -158,6 +183,11 @@ int main() {
       getchar();
       printf("Tape le chiffre d'ordre %d  : ",i+1);
       scanf("%c",&y);
+//      longueur = longueurChaine(y);
+//      while (longueur>1){
+//        printf(":(   :(  Svp , Tape seulement les caracteres d'un seul chiffre : ");
+//        scanf("%c",&y);
+//      }
       T[i]=y;
       t[i]=getvalue(y);
       while(t[i]>=b) {
@@ -172,6 +202,11 @@ int main() {
             printf("Retapez le chiffre d'ordre %d ===>  ",i+1);
             getchar();
             scanf("%c",&y);
+//                  longueur = longueurChaine(y);
+//            while (longueur>1){
+//            printf(":(   :(  Svp , Tape seulement les caracteres d'un seul chiffre : ");
+//            scanf("%c",&y);
+//            }
             T[i]=y;
             t[i]=getvalue(y);}
 
